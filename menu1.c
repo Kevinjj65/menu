@@ -150,3 +150,91 @@ void product(int z[5][5], int x[5][5], int r1, int c1, int y[5][5], int r2, int 
         *r3=i;
         *c3=c2;
 }
+//Read two inputs representing two points in the Euclidean space, store these values in structure variables.
+          //i) Compute the Euclidean distance between two pair of points.
+          //ii) Find the sum of those two distance values.
+#include <stdio.h>
+#include <math.h>
+typedef struct space{
+	float x;
+	float y;
+	float z;
+} space;
+	
+void main(){
+	float d1, d2;
+	space p[4];
+	printf("\nEnter 4 Euclidean points ");
+	for(int i=0; i<4;i++){
+		printf("\nEnter value of point %d",i+1);
+		printf("\nEnter X: ");
+		scanf("%f",&p[i].x);
+		printf("\nEnter Y: ");
+		scanf("%f",&p[i].y);
+		printf("\nEnter Z: ");
+		scanf("%f",&p[i].z);
+	}
+	d1=sqrt(pow((p[0].x-p[1].x),2)+pow((p[0].y-p[1].y),2)+pow((p[0].z-p[1].z),2));
+	printf("\n1. Distance between point 1 and point 2 is: %f",d1);
+	d2=sqrt(pow((p[2].x-p[3].x),2)+pow((p[2].y-p[3].y),2)+pow((p[2].z-p[3].z),2));
+	printf("\n2. Distance between point 3 and point 4 is: %f",d2);
+	printf("\nTotal distance i.e distance 1 + distance 2 is: %f\n",d1+d2);
+}
+// Using  structure, read and print data of n employees (Name, Employee Id and Salary)
+#include  <stdio.h>
+
+typedef struct employe{
+	char name[50];
+	int id;
+	int salary; 
+}employe;
+
+void main(){
+	int n;
+	printf("\nEnter number of employee data to br entered: ");
+	scanf("%d",&n);
+	employe emp[n];
+	printf("\n....Enter Employe Data: ....");
+	for(int i=0; i<n; i++){
+		printf("\nEnter employee name: ");
+		scanf("%s",emp[i].name);
+		printf("Enter employee ID: ");
+		scanf("%d",&emp[i].id);
+		printf("Enter employee salary: ");
+		scanf("%d",&emp[i].salary);
+		printf("------------------\n");
+	}
+	printf("\n....The data you entered are: ....");
+	for(int i=0; i<n; i++){
+		printf("\n\tEnter employee name: %s",emp[i].name);
+		printf("\n\tEnter employee ID: %d",emp[i].id);
+		printf("\n\tEnter employee salary: %d",emp[i].salary);
+		printf("\n------------------\n");
+	}
+//Declare a union containing 5 string variables (Name, House Name, City Name, State and  Pin code) each with a length of C_SIZE (user defined constant). Then, read and display the address of a person using a variable of the union.
+#include <stdio.h>
+#define C_SIZE 50
+union  person{
+	char name[C_SIZE];
+	char house_name[C_SIZE];
+	char city_name[C_SIZE];
+	char state[C_SIZE];
+	char pin_code[C_SIZE];
+}pr;
+void main(){
+	printf("\nEnter name: ");
+	scanf("%s",pr.name);
+	printf("\tName:%s ",pr.name);
+	printf("\n\nEnter house name: ");
+	scanf("%s",pr.house_name);
+	printf("\tHouse name:%s",pr.house_name);
+	printf("\n\nEnter city name: ");
+	scanf("%s",pr.city_name);
+	printf("\tcity name:%s",pr.city_name);
+	printf("\n\nEnter state: ");
+	scanf("%s",pr.state);
+	printf("\tState:%s",pr.state);
+	printf("\n\nEnter pin code: ");
+	scanf("%s",pr.pin_code);
+	printf("\tpincode:%s\n",pr.pin_code);
+}
